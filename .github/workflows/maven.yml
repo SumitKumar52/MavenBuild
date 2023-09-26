@@ -38,9 +38,12 @@ jobs:
       runs-on: ubuntu-latest
       needs: build
       steps:
-      - name: Deplyment
+      - uses: actions/download-artifact@v3
+        with:
+         name: my-artifact
+      - name: Deployment
         run: | 
-          ls -lrt target/
+          ls -lrt
     
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
   #  - name: Update dependency graph
